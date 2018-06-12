@@ -1,0 +1,87 @@
+{
+	"server":
+	[
+		{
+			"port": 80,
+			"ssl": "false",
+			"parameters":
+			[
+				{"key": "index_dir", "value": "false"},
+				{"key": "document_root", "value": "/var/www/html"}
+			]
+		},
+		{
+			"port": 443,
+			"ssl": "true",
+			"parameters":
+			[
+				{"key": "index_dir", "value": "true"},
+				{"key": "server_key", "value": "server.key"},
+				{"key": "server_cert", "value": "server.crt"}
+			]
+		},
+		{
+			"port": 4242,
+			"ssl": "false",
+			"parameters":
+			[
+				{"key": "index_dir", "value": "true"}
+			]
+		},
+		{
+			"port": 4343,
+			"ssl": "true",
+			"parameters":
+			[
+				{"key": "index_dir", "value": "true"},
+				{"key": "server_key", "value": "server.pem"},
+				{"key": "server_cert", "value": "server.pem"}
+
+			]
+		}
+	],
+
+	"owner":
+	{
+		"user": "http",
+		"group": "http"
+	},
+
+	"document_root":
+	{
+		"path": "./",
+		"index_directory": "true" 
+	},
+
+	"directory":
+	{
+		"path": "./",
+		"require":
+		{
+			"not": "false",
+			"entities":
+			[
+				{
+					"id": 0,
+					"name": "all",
+					"value": "granted"
+				}
+			]
+		}
+	},
+
+	"modules":
+	[
+		{"value": "./libmod_io.so"},
+		{"value": "./libmod_ssl.so"},
+		{"value": "./libmod_fs.so"},
+		{"value": "./libmod_php.so"},
+		{"value": "./libmod_http.so"},
+		{"value": "./libmod_blacklist.so"}
+	],
+
+	"mod_parameters":
+	[
+		{"key": "blacklist.file", "value": "./blacklisted.txt"}
+	]
+}

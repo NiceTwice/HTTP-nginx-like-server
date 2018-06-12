@@ -1,0 +1,16 @@
+*.[oa]
+*~
+*.cbp
+*.so
+**/CMakeFiles
+**/CMakeCache.txt
+**/cmake-build-debug
+**/.idea
+**/Makefile
+**/cmake_install.cmake
+**/cmake.check_cache
+**/vgcore*
+
+doc/
+zia.x86_64
+build/
